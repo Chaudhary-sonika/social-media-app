@@ -1,0 +1,56 @@
+.login_mainDiv{
+    background-color: #d1d5db;
+    height: 100vh;
+   
+}
+.detail_box{
+    background-color: white;
+    max-width: 40%;
+    height: 75%;
+    margin: auto;
+    box-shadow: 0 0 5px;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+.login_form{
+   display: flex;
+   flex-direction: column;
+   width: 45%;
+   margin: auto;
+   text-align: left;
+}
+.header_span{
+    color: #047857;
+    font-weight: 800;
+}
+.btn_guestLogin{
+    margin-top: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 0.5rem;
+}
+.btn_guestLogin:hover{
+    cursor: pointer;
+    background-color: #047857;
+    
+}
+.login_input{
+    background-color: black;
+    color: white;
+    border-radius: 0.5rem; 
+}
+.login_input:hover{
+    cursor: pointer;
+    background-color: #047857;
+}
+.span_signup{
+    color: #047857;
+    font-weight: 700;
+    
+}
+.span_signup:hover{
+    font-size: large;
+    cursor: pointer;
+    background-color: #f3f4f6;
+    border-radius: 0.5rem;
+}

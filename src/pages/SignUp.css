@@ -1,0 +1,46 @@
+.signup_main_div{
+    background-color: #d1d5db;
+    height: 100vh;
+}
+.signup_detail_div{
+    background-color: white;
+    max-width: 40%;
+    height: 75%;
+    margin: auto;
+    box-shadow: 0 0 5px;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+.signup_form{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+}
+.form_div_name{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+}
+.name_div{
+    display: block;
+    text-align: left;
+}
+.name_div input{
+    width: 93%;
+}
+.user_pass_div{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+.pass_input{
+  position: relative;  
+}
+.eye_btn{
+position: absolute;
+right: 38%;
+top: 57%;
+
+}

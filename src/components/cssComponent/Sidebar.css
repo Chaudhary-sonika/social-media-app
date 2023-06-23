@@ -1,0 +1,92 @@
+
+.sidebar-mainDiv{
+    display: flex;
+    flex-direction: row;
+}
+.list_Div_sidebar{
+    width: 20%;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+    text-align: left;
+    position: sticky;
+    inset: 10% 0 0 0;
+
+}
+
+.li-sidebar{
+   list-style: none;
+   margin-bottom: 1rem;
+}
+.outlet-component{
+    width: 60%;
+}
+.link-sidebar{
+    text-decoration: none;
+    color: black;
+    font-size:large;
+    font-weight: 600;
+}
+
+.li-sidebar button{
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: white;
+    color: #047857;
+}
+.li-sidebar button:hover{
+    cursor: pointer;
+    background-color: #f3f4f6;
+    border-radius: 0.5rem;
+}
+.right_bar_div{
+    padding-top: 1rem;
+    border-left: 1px solid black;
+    width: 20%;
+   
+}
+.profile_last_div{
+    display: flex;
+    flex-direction: row;
+   margin-left: 2rem;
+}
+.profile_last_div img{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    
+}
+.p_name_div{
+    margin-left: 0.5rem;
+    color: #047857;
+    font-weight: 700;
+}
+.p_username_div{
+    margin-left: 0.5rem;
+    margin-top: -1rem;
+    color: #047857;
+}
+
+
+/* css for Navbar.jsx */
+.navBar_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10vh;
+    background-color: #d1fae5;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: 0 0 2px;
+    position: sticky;
+    inset: 0 0 100% 0;
+}
+.navBar_div h1{
+    margin-top: 0.5rem;
+}
+.navBar_rightDiv{
+    padding-right: 1rem;
+}

@@ -1,0 +1,10 @@
+.home-header{
+    border-bottom: 1px solid black;
+    position: sticky;
+    inset: 10% 0 100% 0;
+    background-color: white;
+    
+}
+h3{
+    margin-bottom: 8rem;
+}

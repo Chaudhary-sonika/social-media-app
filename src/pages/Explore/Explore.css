@@ -1,0 +1,7 @@
+
+.explore-header{
+    border-bottom: 1px solid black;
+    position: sticky;
+    inset: 0 0 100% 0;
+    background-color: white;
+}
