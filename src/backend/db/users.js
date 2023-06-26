@@ -20,6 +20,31 @@ export const users = [
     bio: "NeoGrad",
     website: "https://github.com/Chaudhary-sonika",
     profileAvatar: pic1,
+    following: [
+      {
+        _id: uuid(),
+        fullName: "Abhishek Chaudhary",
+        username: "Abhiii",
+        profileAvatar:
+          "https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg",
+      },
+    ],
+    followers: [
+      {
+        _id: uuid(),
+        fullName: "Rashmi Khanna",
+        username: "R_Khanna",
+        profileAvatar:
+          "https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/813f4928-6cc6-4bc8-a4e4-265f94b4d665/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg?format=1000w",
+      },
+      {
+        _id: uuid(),
+        fullName: "Sakshi Shrotiya",
+        username: "sakshi28",
+        profileAvatar:
+          "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyMlDtD8Hj7njoNHMwottMK41tzbY5Y9FIgmJqVqH_hfE2fZFpl_GzwBDIN3lppKKZLv2BwN85mLUtflm_HTcOEZ3IkuyG0IbvKdIcO-wGK1aDpLkBdJiWzoLVgxYAfQOwLHntI2ln70OVF4IeNlcdpRsAUgMrTC6Vt8l_lUcm4uay0oNJtxAO04rt/s1080/47_Girl-DP-Sohohindi.in_.jpeg",
+      },
+    ],
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

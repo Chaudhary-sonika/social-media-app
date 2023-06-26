@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 import { AuthProvider } from "./contexts/AuthContext";
 import { UserProvider } from "./contexts/UserContext";
+import { PostProvider } from "./contexts/PostContext";
 
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,7 +16,9 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
         <UserProvider>
-          <App />
+          <PostProvider>
+            <App />
+          </PostProvider>
         </UserProvider>
       </AuthProvider>
     </BrowserRouter>

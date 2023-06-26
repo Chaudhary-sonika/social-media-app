@@ -11,7 +11,28 @@
 .profile_header_div{
     display: flex;
     flex-direction: row;
+   justify-content: center;
+   background-color: #d1fae5;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
 }
 .profile_header_img{
-    width: 3rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 3rem;
+}
+.name_header_div{
+margin-left: 1.5rem;
+line-height: 2px;
+text-align: left;
+}
+.name_header_div h5{
+    margin-top: -6rem;
+    
+}
+.post_follower_divP{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #d1fae5;
 }

@@ -1,5 +1,6 @@
 import "./Home.css";
 export const Home =()=>{
+    document.title = "NetLink | Home";
     return(
         <div className="home-main-div">
             <h1 className="home-header"> Home </h1>
