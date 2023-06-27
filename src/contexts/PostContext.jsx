@@ -11,6 +11,7 @@ export const PostProvider =({children})=>{
         postLoading: false,
         post:[],
         userPost:[],
+        sortBy: "",
     }
     const [postState, postDispatch] = useReducer(postReducer, initialState);
     const {authState} = useAuth();
@@ -43,7 +44,7 @@ export const PostProvider =({children})=>{
           console.log(e);
         }
     }
-    const likePost =async(postId)=>{
+    const likePost = async(postId)=>{
         try{
             const {data, status} = await axios({
                 method: "POST",
@@ -53,6 +54,7 @@ export const PostProvider =({children})=>{
             if(status===200 || status ===201){
                 postDispatch({type:"get_post", payload: data?.posts});
                 return data.posts.find(post => post._id === postId);
+                console.log("hello");
             }
         }catch(e){
             console.log(e);
@@ -95,7 +97,7 @@ export const PostProvider =({children})=>{
         }
     }, [authState?.token]);
     return(
-        <PostContext.Provider value={{postState, getPostData, getUserPost, likePost,dislikePost, deletePost}}>
+        <PostContext.Provider value={{postState, postDispatch, getPostData, getUserPost, likePost,dislikePost, deletePost}}>
             {children}
         </PostContext.Provider>
     )

@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import InterestsIcon from '@mui/icons-material/Interests';
 import LinkIcon from '@mui/icons-material/Link';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { PostDisplay } from "../../components/PostDisplay";
 export const UserProfile =()=>{
     document.title = "NetLink | Profile";
    const {userState, followUser, unFollowUser} = useUser();
@@ -34,7 +35,7 @@ export const UserProfile =()=>{
         console.log(e);
     }
   };
-  console.log(authState, "userData");
+  // console.log(postState, "postState");
   useEffect(()=>{
     getUserDetails();
   }, [username, postState.post, userState])
@@ -45,7 +46,7 @@ export const UserProfile =()=>{
             </div>
             <div>
                 <div >
-                <div className="profile_header_div">
+                  <div className="profile_header_div">
                     <img className="profile_header_img" src={profileAvatar} alt="pic"/>
                     <div className="name_header_div">
                      <h3>{firstName} {lastName}</h3> 
@@ -54,13 +55,13 @@ export const UserProfile =()=>{
                      <p><LinkIcon style={{fontSize:"medium"}}/>  {authState?.user?.website} </p>
                      <p><CalendarTodayIcon style={{fontSize:"medium"}}/>  {authState?.user?.createdAt}</p> 
                     </div>
-                </div>
-                <div className="post_follower_divP">
-                <p>{postState?.userPost?.length +
+                  </div>
+                  <div className="post_follower_divP">
+                   <p>{postState?.userPost?.length +
                       `${postState?.userPost?.length === 1 ? " Post" : " Posts"}`}
-                  </p> 
-                  <p>
-                  {userData?.followers?.length +
+                   </p> 
+                   <p>
+                     {userData?.followers?.length +
                       `${
                         userData?.followers?.length === 1
                           ? " Follower"
@@ -75,10 +76,16 @@ export const UserProfile =()=>{
                           : " Followings"
                       }`}
                      </p> 
-                </div>
+                  </div>
                 </div>
                 <div>
-
+                  {postState?.userPost?.map((post)=>(
+                    <div>
+                       <PostDisplay userPost={post}/>
+                    </div>
+                  ))}
+                 
+                 
                 </div>
             </div>
         </div>

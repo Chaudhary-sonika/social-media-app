@@ -1,0 +1,53 @@
+.post_Main_Div{
+    margin: 2rem;
+    padding: 2rem;
+    background-color: #d1fae5;
+    border-radius: 1rem;
+}
+.post_header_div{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+}
+.avatar_Div_postedBy{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.profile_Avatar{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+}
+.NU_Div{
+    line-height: 0px;
+    padding-left: 0.5rem;
+    text-align: left;
+}
+.name_PostedBy{
+    font-size: x-small;
+}
+.created_PostedBy{
+    font-size: xx-small;
+    color: gray;
+}
+.content_para{
+    text-align: left;
+}
+.Post_Image{
+    width: 90%;
+    border-radius: 1rem;
+}
+.likes_Div{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    padding-left: 5%;
+}
+.like_comm_book_div{
+    display: flex;
+    flex-direction: row;
+   justify-content:space-between;
+   
+}

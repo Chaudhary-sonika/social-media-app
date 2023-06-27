@@ -6,6 +6,8 @@ export const postReducer = (state, action)=>{
         return {...state, post: action.payload};
     case "user_post":
         return {...state, userPost: action.payload};
+    case "sort":
+        return {...state, sortBy: action.payload}    
     default:
         return state;            
   }

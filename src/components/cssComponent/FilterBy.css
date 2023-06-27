@@ -1,0 +1,15 @@
+.filterBy_main_Div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   border-bottom: 1px solid black;
+}
+.filterBy_main_Div button{
+    border: none;
+    background-color: white;
+    margin-top: -1rem;
+}
+.filterBy_main_Div button:hover{
+    cursor: pointer;
+    font-size: medium;
+}
