@@ -10,6 +10,7 @@ import CommentIcon from '@mui/icons-material/Comment';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import "../components/cssComponent/PostDisplay.css";
+import { useNavigate } from "react-router";
 
 export const PostDisplay =({userPost})=>{
     const { _id, content, postImage, likes, comments, username, createdAt} = userPost;
@@ -17,6 +18,7 @@ export const PostDisplay =({userPost})=>{
     const {authState} = useAuth();
     const {likePost,dislikePost, deletePost} = usePost();
     const [userDetails, setUserDetails] = useState({});
+    const navigate = useNavigate();
     // console.log(userPost, "User");
 
 
@@ -50,7 +52,7 @@ export const PostDisplay =({userPost})=>{
                 </div>
                 <MoreVertIcon/>
             </div>
-            <div>
+            <div onClick={() => navigate(`/post/${_id}`)}>
                 <p className="content_para">{content}</p>
                 {postImage && (<img src={postImage} alt="postImage" className="Post_Image"/>)}
                 <div className="likes_Div">

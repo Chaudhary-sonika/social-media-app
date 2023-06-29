@@ -29,9 +29,9 @@ export const UserSuggest = ()=>{
                 </div>
              </div>
              {isFollow(user?._id)?(
-                <button onClick={() => unfollowUser(user?._id)}>Following</button>
+                <button className="follow_button" onClick={() => unfollowUser(user?._id)}>Following</button>
              ):(
-                <button onClick={() => followUser(user?._id)}>Follow</button>
+                <button className="follow_button" onClick={() => followUser(user?._id)}>Follow</button>
              )}
             </div>
            ): null}

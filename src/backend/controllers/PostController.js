@@ -22,6 +22,7 @@ export const getAllpostsHandler = function () {
 
 export const getPostHandler = function (schema, request) {
   const postId = request.params.postId;
+  console.log(postId, "controller");
   try {
     const post = schema.posts.findBy({ _id: postId }).attrs;
     return new Response(200, {}, { post });

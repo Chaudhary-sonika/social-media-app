@@ -1,5 +1,5 @@
 import { Response } from "miragejs";
-import { formatDate, requireAuth } from "../utils/AuthUtils";
+import { formatDate, requiresAuth } from "../utils/AuthUtils";
 import { v4 as uuid } from "uuid";
 
 /**
@@ -30,7 +30,7 @@ export const getPostCommentsHandler = function (schema, request) {
  */
 
 export const addPostCommentHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -48,9 +48,9 @@ export const addPostCommentHandler = function (schema, request) {
 
     const comment = {
       _id: uuid(),
-      ...commentData,
+      comment: commentData,
       username: user.username,
-      fullName: user.fullName,
+      fullName: user?.firstName + user?.lastName,
       profileAvatar: user.profileAvatar,
       votes: { upvotedBy: [], downvotedBy: [] },
       createdAt: formatDate(),
@@ -77,7 +77,7 @@ export const addPostCommentHandler = function (schema, request) {
  * */
 
 export const editPostCommentHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -105,7 +105,7 @@ export const editPostCommentHandler = function (schema, request) {
     }
     post.comments[commentIndex] = {
       ...post.comments[commentIndex],
-      ...commentData,
+      comment: commentData,
       updatedAt: formatDate(),
     };
     this.db.posts.update({ _id: postId }, post);
@@ -127,7 +127,7 @@ export const editPostCommentHandler = function (schema, request) {
  * */
 
 export const deletePostCommentHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -177,7 +177,7 @@ export const deletePostCommentHandler = function (schema, request) {
  */
 
 export const upvotePostCommentHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -229,7 +229,7 @@ export const upvotePostCommentHandler = function (schema, request) {
  * */
 
 export const downvotePostCommentHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(

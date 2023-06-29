@@ -29,3 +29,8 @@ width: 5rem;
     font-size: small;
     color: #047857;
 }
+.follow_button:hover{
+ cursor: pointer;
+ background-color: black;
+ color: white;
+}

@@ -1,0 +1,36 @@
+.comment_div{
+    background-color: #d1fae5;
+    margin: 2rem;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.input_place{
+    width: 50%;
+    margin-right: 2%;
+    padding: 0.5rem;
+}
+.input_button{
+    width: 12%;
+    padding: 0.5rem;
+    background-color: #d1fae5;
+    border-radius: 0.5rem;
+    border: 1px solid #047857;
+}
+.input_button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.comm_delete_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.trash_span:hover{
+  cursor: pointer;
+  color: #047857;
+}
+.edit_trash_div{
+    display: flex;
+    flex-direction: row;
+}
