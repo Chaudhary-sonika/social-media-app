@@ -15,9 +15,9 @@ export const PostDisplay =({userPost})=>{
     const { _id, content, postImage, likes, comments, username, createdAt} = userPost;
     const {userState} = useUser();
     const {authState} = useAuth();
-    const {likePost,dislikePost, deletePost} = usePost;
+    const {likePost,dislikePost, deletePost} = usePost();
     const [userDetails, setUserDetails] = useState({});
-    console.log(userPost, "User");
+    // console.log(userPost, "User");
 
 
     useEffect(()=>{
@@ -37,6 +37,7 @@ export const PostDisplay =({userPost})=>{
             likePost(_id);
         }
     }
+    // console.log(likedByUser(), "like");
     return(
         <div className="post_Main_Div">
             <div className="post_header_div">
@@ -54,7 +55,7 @@ export const PostDisplay =({userPost})=>{
                 {postImage && (<img src={postImage} alt="postImage" className="Post_Image"/>)}
                 <div className="likes_Div">
                   <p>{likes?.likeCount} Likes</p>
-                  <p style={{marginLeft:"10%"}}>{comments.length>0 && comments?.length + `${comments.length === 1 ? " comment" : " comments"}`}</p>
+                  <p style={{marginLeft:"10%"}}>{comments?.length>0 && comments?.length + `${comments.length === 1 ? " comment" : " comments"}`}</p>
                 </div>
                 <hr/>
                 <div className="like_comm_book_div">

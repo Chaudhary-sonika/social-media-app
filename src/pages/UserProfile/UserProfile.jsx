@@ -18,7 +18,7 @@ export const UserProfile =()=>{
    const {username, profileAvatar, firstName, lastName} = authState?.user;
   const [userData, setUserData] = useState({});
   const [dataLoading, setDataLoading] = useState(false);
-
+  
   const getUserDetails =async()=>{
     try{
         setDataLoading(true);
@@ -35,7 +35,7 @@ export const UserProfile =()=>{
         console.log(e);
     }
   };
-  // console.log(postState, "postState");
+  console.log(postState, "sonika");
   useEffect(()=>{
     getUserDetails();
   }, [username, postState.post, userState])

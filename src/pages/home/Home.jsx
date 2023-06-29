@@ -2,7 +2,9 @@ import { FilterBy } from "../../components/FilterBy";
 import { useAuth } from "../../contexts/AuthContext";
 import { usePost } from "../../contexts/PostContext";
 import { useUser } from "../../contexts/UserContext";
+import {PostDisplay} from "../../components/PostDisplay";
 import "./Home.css";
+import { ClipLoader } from "react-spinners";    
 export const Home =()=>{
     document.title = "NetLink | Home";
     const {authState} = useAuth();
@@ -11,7 +13,7 @@ export const Home =()=>{
     let userFeed = [];
 
     const userLoggedIn = userState?.find(
-        ({ _id }) => _id === authState?.user?._id
+        ({ id }) => id === authState?.user?.id
       );
      
     const FollowingUserPost =  postState?.post?.filter(({username})=>{
@@ -23,14 +25,14 @@ export const Home =()=>{
         return followerUsernameArr?.includes(username);
     });
     
-    userFeed =[...userFeed, ...FollowingUserPost, FollowerUserPost, ...postState?.post?.filter(({username})=> username === userLoggedIn?.username),];
+    userFeed =[...userFeed, ...FollowingUserPost, ...FollowerUserPost, ...postState?.post?.filter(({username})=> username === userLoggedIn?.username),];
 
-    if(postState?.sortBy === "trending"){
-        userFeed = userFeed.sort((a, b) => b.likes.likeCount - a.likes.likeCount);
-    }else if(postState?.sortBy === "latest"){
+    if(postState?.sortBy === "Trending"){
+        userFeed = userFeed?.sort((a, b) => b.likes.likeCount - a.likes.likeCount);
+    }else if(postState?.sortBy === "Latest"){
         userFeed = userFeed?.sort((a, b)=>new Date(b.createdAt)- new Date(a.createdAt));
     }
-    console.log(userLoggedIn, "loggedIn");
+    // console.log(userLoggedIn, "loggedIn");
     // console.log(userFeed, "home");
     // console.log(FollowerUserPost, "Follower");
     // console.log(FollowingUserPost, "following");
@@ -39,6 +41,15 @@ export const Home =()=>{
         <div className="home-main-div">
             <h1 className="home-header"> Home </h1>
             <FilterBy/>
+            {postState.postLoading && (<ClipLoader/>)}
+            <div>
+                {userFeed?.length ===0 && (<h1>No Posts.... </h1>)}
+                {userFeed?.map((posts)=>(
+                    <div>
+                        <PostDisplay userPost={posts}/>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

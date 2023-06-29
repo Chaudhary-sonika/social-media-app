@@ -12,6 +12,7 @@ import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
 import { RequireAuth } from "./components/RequireAuth";
 import { Navbar } from "./components/Navbar";
+import { PostDetails } from "./pages/PostDetail/PostDetails";
 function App() {
   return (
     <div className="App">
@@ -54,6 +55,7 @@ function App() {
               </RequireAuth>
             }
           />
+          <Route path="/postdetail/:postId" element={<PostDetails />} />
         </Route>
 
         <Route path="/mockman" element={<Mockman />} />

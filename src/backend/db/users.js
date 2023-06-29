@@ -12,7 +12,7 @@ import pic5 from "../images/pic5.jpg";
 
 export const users = [
   {
-    _id: uuid(),
+    _id: 1,
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
@@ -22,7 +22,7 @@ export const users = [
     profileAvatar: pic1,
     following: [
       {
-        _id: uuid(),
+        _id: 3,
         fullName: "Abhishek Chaudhary",
         username: "Abhiii",
         profileAvatar:
@@ -31,14 +31,14 @@ export const users = [
     ],
     followers: [
       {
-        _id: uuid(),
+        _id: 4,
         fullName: "Rashmi Khanna",
         username: "R_Khanna",
         profileAvatar:
           "https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/813f4928-6cc6-4bc8-a4e4-265f94b4d665/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg?format=1000w",
       },
       {
-        _id: uuid(),
+        _id: 5,
         fullName: "Sakshi Shrotiya",
         username: "sakshi28",
         profileAvatar:
@@ -49,7 +49,7 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: 2,
     firstName: "Sonika",
     lastName: "Chaudhary",
     username: "IAm_Sonika",
@@ -62,7 +62,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: 3,
         fullName: "Abhishek Chaudhary",
         username: "Abhiii",
         profileAvatar:
@@ -71,21 +71,21 @@ export const users = [
     ],
     followers: [
       {
-        _id: uuid(),
+        _id: 3,
         fullName: "Abhishek Chaudhary",
         username: "Abhiii",
         profileAvatar:
           "https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg",
       },
       {
-        _id: uuid(),
+        _id: 4,
         fullName: "Rashmi Khanna",
         username: "R_Khanna",
         profileAvatar:
           "https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/813f4928-6cc6-4bc8-a4e4-265f94b4d665/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg?format=1000w",
       },
       {
-        _id: uuid(),
+        _id: 5,
         fullName: "Sakshi Shrotiya",
         username: "sakshi28",
         profileAvatar:
@@ -94,7 +94,7 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: 3,
     firstName: "Abhishek",
     lastName: "Chaudhary",
     username: "Abhiii",
@@ -107,14 +107,14 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: 2,
         fullName: "Sonika Chaudhary",
         username: "IAm_Sonika",
         profileAvatar:
           "https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       },
       {
-        _id: uuid(),
+        _id: 4,
         fullName: "Rashmi Khanna",
         username: "R_Khanna",
         profileAvatar:
@@ -123,21 +123,21 @@ export const users = [
     ],
     followers: [
       {
-        _id: uuid(),
+        _id: 2,
         fullName: "Sonika Chaudhary",
         username: "IAm_Sonika",
         profileAvatar:
           "https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       },
       {
-        _id: uuid(),
+        _id: 4,
         fullName: "Rashmi Khanna",
         username: "R_Khanna",
         profileAvatar:
           "https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/813f4928-6cc6-4bc8-a4e4-265f94b4d665/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg?format=1000w",
       },
       {
-        _id: uuid(),
+        _id: 5,
         fullName: "Sakshi Shrotiya",
         username: "sakshi28",
         profileAvatar:
@@ -146,7 +146,7 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: 4,
     firstName: "Rashmi",
     lastName: "Khanna",
     username: "R_Khanna",
@@ -159,21 +159,21 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: 3,
         fullName: "Abhishek Chaudhary",
         username: "Abhiii",
         profileAvatar:
           "https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg",
       },
       {
-        _id: uuid(),
+        _id: 5,
         fullName: "Sakshi Shrotiya",
         username: "sakshi28",
         profileAvatar:
           "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyMlDtD8Hj7njoNHMwottMK41tzbY5Y9FIgmJqVqH_hfE2fZFpl_GzwBDIN3lppKKZLv2BwN85mLUtflm_HTcOEZ3IkuyG0IbvKdIcO-wGK1aDpLkBdJiWzoLVgxYAfQOwLHntI2ln70OVF4IeNlcdpRsAUgMrTC6Vt8l_lUcm4uay0oNJtxAO04rt/s1080/47_Girl-DP-Sohohindi.in_.jpeg",
       },
       {
-        _id: uuid(),
+        _id: 2,
         fullName: "Sonika Chaudhary",
         username: "IAm_Sonika",
         profileAvatar:
@@ -182,7 +182,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: uuid(),
+        _id: 3,
         fullName: "Abhishek Chaudhary",
         username: "Abhiii",
         profileAvatar:
@@ -190,7 +190,7 @@ export const users = [
       },
 
       {
-        _id: uuid(),
+        _id: 5,
         fullName: "Sakshi Shrotiya",
         username: "sakshi28",
         profileAvatar:
@@ -199,7 +199,7 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: 5,
     firstName: "Sakshi",
     lastName: "Shrotiya",
     username: "sakshi28",
@@ -212,14 +212,14 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: 2,
         fullName: "Sonika Chaudhary",
         username: "IAm_Sonika",
         profileAvatar:
           "https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       },
       {
-        _id: uuid(),
+        _id: 4,
         fullName: "Rashmi Khanna",
         username: "R_Khanna",
         profileAvatar:
@@ -228,7 +228,7 @@ export const users = [
     ],
     followers: [
       {
-        _id: uuid(),
+        _id: 4,
         fullName: "Rashmi Khanna",
         username: "R_Khanna",
         profileAvatar:
@@ -238,7 +238,7 @@ export const users = [
   },
 
   {
-    _id: uuid(),
+    _id: 6,
     firstName: "Kulwant",
     lastName: "Singh",
     username: "Kul_Army",
@@ -251,7 +251,7 @@ export const users = [
     following: [],
     followers: [
       {
-        _id: uuid(),
+        _id: 4,
         fullName: "Rashmi Khanna",
         username: "R_Khanna",
         profileAvatar:
@@ -260,7 +260,7 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: 7,
     firstName: "Fang",
     lastName: "Li",
     username: "fang123",
@@ -273,7 +273,7 @@ export const users = [
     following: [],
     followers: [
       {
-        _id: uuid(),
+        _id: 9,
         fullName: "Xioki",
         username: "x_lee",
         profileAvatar: pic2,
@@ -281,12 +281,26 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: 8,
     firstName: "Deepanshu",
     lastName: "Banga",
     username: "Deep_04",
     password: "04deep",
     bio: "Aspiring Web Developer",
+    website: "",
+    profileAvatar: pic3,
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    following: [],
+    followers: [],
+  },
+  {
+    _id: 9,
+    firstName: "Xioki",
+    lastName: "Chhaio",
+    username: "x_lee",
+    password: "04xio",
+    bio: "Art lover...",
     website: "",
     profileAvatar: pic3,
     createdAt: formatDate(),

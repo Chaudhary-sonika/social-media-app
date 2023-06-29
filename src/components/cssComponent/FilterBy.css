@@ -13,3 +13,7 @@
     cursor: pointer;
     font-size: medium;
 }
+.trending_post{
+    margin-bottom: -1rem;
+    color: #047857;
+}

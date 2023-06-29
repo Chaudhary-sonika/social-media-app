@@ -46,7 +46,9 @@
     padding-top: 1rem;
     border-left: 1px solid black;
     width: 20%;
-   
+    position: sticky;
+    inset: 10% 0 0 0;
+    height: 90vh;
 }
 .profile_last_div{
     display: flex;

@@ -2,8 +2,8 @@ import { Response } from "miragejs";
 import dayjs from "dayjs";
 import jwt_decode from "jwt-decode";
 
-export const requireAuth = function (request) {
-  const encodedToken = request.requestHeader.authorization;
+export const requiresAuth = function (request) {
+  const encodedToken = request.requestHeaders.authorization;
   const decodedToken = jwt_decode(
     encodedToken,
     process.env.REACT_APP_JWT_SECRET
@@ -15,7 +15,7 @@ export const requireAuth = function (request) {
   return new Response(
     401,
     {},
-    { errors: ["This token is invalid. Unauthorised access error."] }
+    { errors: ["The token is invalid. Unauthorized access error."] }
   );
 };
 

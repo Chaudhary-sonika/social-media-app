@@ -1,31 +1,35 @@
 import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
 import { formatDate } from "../utils/AuthUtils";
-import sign from "jwt-encode";
+const sign = require("jwt-encode");
 
 /**
- * All the routes related to the Auth are present here.
- * These are publicly accessible routes.
+ * All the routes related to Auth are present here.
+ * These are Publicly accessible routes.
+ * */
+
+/**
  * This handler handles user signups.
- * send POST request at /api/auth/signup
+ * send POST Request at /api/auth/signup
  * body contains {firstName, lastName, username, password}
- */
+ * */
 
 export const signupHandler = function (schema, request) {
   const { username, password, ...rest } = JSON.parse(request.requestBody);
   try {
-    //check if username already exists
+    // check if username already exists
     const foundUser = schema.users.findBy({ username: username });
     if (foundUser) {
       return new Response(
         422,
         {},
         {
-          errors: ["Unprocessable Entity. Username already exists."],
+          errors: ["Unprocessable Entity. Username Already Exists."],
         }
       );
     }
     const _id = uuid();
+
     const newUser = {
       _id,
       createdAt: formatDate(),
@@ -33,7 +37,7 @@ export const signupHandler = function (schema, request) {
       username,
       password,
       ...rest,
-      followera: [],
+      followers: [],
       following: [],
       bookmarks: [],
     };
@@ -42,14 +46,7 @@ export const signupHandler = function (schema, request) {
       { _id, username },
       process.env.REACT_APP_JWT_SECRET
     );
-    return new Response(
-      201,
-      {},
-      {
-        createdUser,
-        encodedToken,
-      }
-    );
+    return new Response(201, {}, { createdUser, encodedToken });
   } catch (error) {
     return new Response(
       500,
@@ -63,9 +60,9 @@ export const signupHandler = function (schema, request) {
 
 /**
  * This handler handles user login.
- * send POST request at /api/auth/login
+ * send POST Request at /api/auth/login
  * body contains {username, password}
- */
+ * */
 
 export const loginHandler = function (schema, request) {
   const { username, password } = JSON.parse(request.requestBody);
@@ -84,20 +81,10 @@ export const loginHandler = function (schema, request) {
     }
     if (password === foundUser.password) {
       const encodedToken = sign(
-        {
-          _id: foundUser._id,
-          username,
-        },
+        { _id: foundUser._id, username },
         process.env.REACT_APP_JWT_SECRET
       );
-      return new Response(
-        200,
-        {},
-        {
-          foundUser,
-          encodedToken,
-        }
-      );
+      return new Response(200, {}, { foundUser, encodedToken });
     }
     return new Response(
       401,

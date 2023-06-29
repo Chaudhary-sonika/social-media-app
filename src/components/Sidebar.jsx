@@ -6,6 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { UserSuggest } from "./UserSuggest";
 export const Sidebar =()=>{
     const {userLogout, authState} = useAuth();
     const {username, profileAvatar, firstName, lastName} = authState?.user;
@@ -47,6 +48,7 @@ export const Sidebar =()=>{
             <div className="right_bar_div">
                 <input placeholder="Search users.."/>
                 <h2>Suggested Users</h2>
+                <UserSuggest/>
             </div>
         </div>
     )

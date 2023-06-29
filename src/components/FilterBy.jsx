@@ -8,10 +8,10 @@ export const FilterBy = ()=>{
     return(
         <div>
             <div className="filterBy_main_Div">
-                <button onClick={()=>postDispatch({type: "sort", payload: "trending"})}><TrendingUpIcon/> Trending</button>
-                <button onClick={()=>postDispatch({type: "sort", payload: "latest"})}><UpdateIcon/> Latest</button>
+                <button onClick={()=>postDispatch({type: "sort", payload: "Trending"})}><TrendingUpIcon/> Trending</button>
+                <button onClick={()=>postDispatch({type: "sort", payload: "Latest"})}><UpdateIcon/> Latest</button>
             </div>
-            {postState?.sortBy && (<h3>{postState?.sortBy} Posts</h3>)}
+            {postState?.sortBy && (<h3 className="trending_post">{postState?.sortBy} Posts....</h3>)}
         </div>
     )
 }

@@ -1,26 +1,29 @@
-import { v4 as uuid } from "uuid";
-import { formatDate, requireAuth } from "../utils/AuthUtils";
 import { Response } from "miragejs";
+import { formatDate, requiresAuth } from "../utils/AuthUtils";
+import { v4 as uuid } from "uuid";
 
 /**
  * All the routes related to post are present here.
- * This handler handles gets all posts in the db.
- * send GET request at /api/posts
- */
+ * */
 
-export const getAllPostHandler = function () {
+/**
+ * This handler handles gets all posts in the db.
+ * send GET Request at /api/posts
+ * */
+
+export const getAllpostsHandler = function () {
   return new Response(200, {}, { posts: this.db.posts });
 };
 
 /**
  * This handler gets post by postId in the db.
- * send GET request at /api/posts/:postId
- */
+ * send GET Request at /api/posts/:postId
+ * */
 
 export const getPostHandler = function (schema, request) {
   const postId = request.params.postId;
   try {
-    const post = schema.posts.findBy({ id: postId }).attrs;
+    const post = schema.posts.findBy({ _id: postId }).attrs;
     return new Response(200, {}, { post });
   } catch (error) {
     return new Response(
@@ -34,11 +37,11 @@ export const getPostHandler = function (schema, request) {
 };
 
 /**
- * This handler gets posts of a user in db.
- * send GET Request at api/post/user/:username
- */
+ * This handler gets posts of a user in the db.
+ * send GET Request at /api/posts/user/:username
+ * */
 
-export const getAllUserPostHandler = function (schema, request) {
+export const getAllUserPostsHandler = function (schema, request) {
   const { username } = request.params;
   try {
     const posts = schema.posts.where({ username })?.models;
@@ -58,10 +61,10 @@ export const getAllUserPostHandler = function (schema, request) {
  * This handler handles creating a post in the db.
  * send POST Request at /api/user/posts/
  * body contains {content}
- */
+ * */
 
-export const createPostHanler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+export const createPostHandler = function (schema, request) {
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -69,7 +72,7 @@ export const createPostHanler = function (schema, request) {
         {},
         {
           errors: [
-            "The username you entered is not registered. Not found error",
+            "The username you entered is not Registered. Not Found error",
           ],
         }
       );
@@ -83,7 +86,6 @@ export const createPostHanler = function (schema, request) {
         likedBy: [],
         dislikedBy: [],
       },
-      comments: [],
       username: user.username,
       createdAt: formatDate(),
       updatedAt: formatDate(),
@@ -105,10 +107,9 @@ export const createPostHanler = function (schema, request) {
  * This handler handles updating a post in the db.
  * send POST Request at /api/posts/edit/:postId
  * body contains { postData }
- */
-
+ * */
 export const editPostHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -150,10 +151,10 @@ export const editPostHandler = function (schema, request) {
 /**
  * This handler handles liking a post in the db.
  * send POST Request at /api/posts/like/:postId
- */
+ * */
 
 export const likePostHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -166,24 +167,39 @@ export const likePostHandler = function (schema, request) {
         }
       );
     }
+    const {
+      _id,
+      firstName,
+      lastName,
+      username,
+      createdAt,
+      updatedAt,
+      followers,
+      following,
+    } = user;
     const postId = request.params.postId;
     const post = schema.posts.findBy({ _id: postId }).attrs;
-    if (
-      post.likes.likedBy.some((currUser) => currUser.username === user.username)
-    ) {
+    if (post.likes.likedBy.some((currUser) => currUser._id === user._id)) {
       return new Response(
         400,
         {},
-        {
-          errors: ["Cannot like a post that is already liked."],
-        }
+        { errors: ["Cannot like a post that is already liked. "] }
       );
     }
     post.likes.dislikedBy = post.likes.dislikedBy.filter(
-      (currUser) => currUser.username !== user.username
+      (currUser) => currUser._id !== user._id
     );
     post.likes.likeCount += 1;
-    post.likes.likedBy.push(user);
+    post.likes.likedBy.push({
+      _id,
+      firstName,
+      lastName,
+      username,
+      createdAt,
+      updatedAt,
+      followers,
+      following,
+    });
     this.db.posts.update({ _id: postId }, { ...post, updatedAt: formatDate() });
     return new Response(201, {}, { posts: this.db.posts });
   } catch (error) {
@@ -199,18 +215,20 @@ export const likePostHandler = function (schema, request) {
 
 /**
  * This handler handles disliking a post in the db.
- * send POST request at /api/posts/dislike/:postId
- */
+ * send POST Request at /api/posts/dislike/:postId
+ * */
 
 export const dislikePostHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
         404,
         {},
         {
-          error: ["The usename you entered is not Registered. Not found errro"],
+          errors: [
+            "The username you entered is not Registered. Not Found error",
+          ],
         }
       );
     }
@@ -223,11 +241,7 @@ export const dislikePostHandler = function (schema, request) {
         { errors: ["Cannot decrement like less than 0."] }
       );
     }
-    if (
-      post.likes.dislikedBy.some(
-        (currUser) => currUser.username === user.username
-      )
-    ) {
+    if (post.likes.dislikedBy.some((currUser) => currUser._id === user._id)) {
       return new Response(
         400,
         {},
@@ -236,7 +250,7 @@ export const dislikePostHandler = function (schema, request) {
     }
     post.likes.likeCount -= 1;
     const updatedLikedBy = post.likes.likedBy.filter(
-      (currUser) => currUser.username !== user.username
+      (currUser) => currUser._id !== user._id
     );
     post.likes.dislikedBy.push(user);
     post = { ...post, likes: { ...post.likes, likedBy: updatedLikedBy } };
@@ -254,12 +268,11 @@ export const dislikePostHandler = function (schema, request) {
 };
 
 /**
- *  This handler handles deleting a post in the db.
+ * This handler handles deleting a post in the db.
  * send DELETE Request at /api/user/posts/:postId
- */
-
+ * */
 export const deletePostHandler = function (schema, request) {
-  const user = requireAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
