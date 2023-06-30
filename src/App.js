@@ -55,7 +55,14 @@ function App() {
               </RequireAuth>
             }
           />
-          <Route path="/post/:postId" element={<PostDetails />} />
+          <Route
+            path="/post/:postId"
+            element={
+              <RequireAuth>
+                <PostDetails />
+              </RequireAuth>
+            }
+          />
         </Route>
 
         <Route path="/mockman" element={<Mockman />} />

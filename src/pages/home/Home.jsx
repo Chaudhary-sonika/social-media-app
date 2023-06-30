@@ -5,11 +5,13 @@ import { useUser } from "../../contexts/UserContext";
 import {PostDisplay} from "../../components/PostDisplay";
 import "./Home.css";
 import { ClipLoader } from "react-spinners";    
+import { useState } from "react";
 export const Home =()=>{
     document.title = "NetLink | Home";
     const {authState} = useAuth();
-    const {postState} =usePost();
+    const {postState, createNewPost} =usePost();
     const {userState} = useUser();
+    const [inputPost, setInputPost] = useState("");
     let userFeed = [];
 
     const userLoggedIn = userState?.find(
@@ -43,6 +45,10 @@ export const Home =()=>{
             <FilterBy/>
             {postState.postLoading && (<ClipLoader/>)}
             <div>
+                <div className="post_input_div">
+                    <input className="post_inputArea" value={inputPost} onChange={(e)=>setInputPost(e.target.value)}  placeholder="What is going on...."/>
+                    <button className="button_post" onClick={()=>{createNewPost(inputPost); setInputPost("");}}>Post</button>
+                </div>
                 {userFeed?.length ===0 && (<h1>No Posts.... </h1>)}
                 {userFeed?.map((posts)=>(
                     <div>

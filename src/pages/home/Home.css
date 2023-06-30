@@ -8,3 +8,32 @@
 h3{
     margin-bottom: 8rem;
 }
+.post_input_div{
+    margin-top: 1rem;
+    
+}
+.post_inputArea{
+    width: 50%;
+    height: 3rem;
+    background-color: #ecfdf5;
+    border: 1px solid #047857;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    
+}
+.post_inputArea:hover{
+    box-shadow: 0 0 2px;
+}
+.button_post{
+    margin-left: 0.5rem;
+    background-color: #a7f3d0;
+    border: 1px solid #047857;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 0.5rem;
+}
+.button_post:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}

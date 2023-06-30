@@ -12,7 +12,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { PostDisplay } from "../../components/PostDisplay";
 export const UserProfile =()=>{
     document.title = "NetLink | Profile";
-   const {userState, followUser, unFollowUser} = useUser();
+   const {userState} = useUser();
    const {postState, getUserPost} = usePost();
    const {authState} = useAuth();
    const {username, profileAvatar, firstName, lastName} = authState?.user;

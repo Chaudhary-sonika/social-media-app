@@ -92,3 +92,30 @@
 .navBar_rightDiv{
     padding-right: 1rem;
 }
+/* popup style */
+
+.popup_div{
+    background-color: #d1fae5;
+    margin: 0.5rem;
+    box-shadow: 0 0 2px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    
+}
+.popup_detail_div{
+    display: flex;
+    flex-direction: row;
+}
+.popup_img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+.popup_name_hTag{
+    margin-top: 0rem;
+}
+.popup_username_para{
+    margin-top: -1.5rem;
+    font-size: small;
+    color: #047857;
+}

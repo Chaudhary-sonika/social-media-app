@@ -12,6 +12,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import "../components/cssComponent/PostDisplay.css";
 import { useNavigate } from "react-router";
 import { useBookmark } from "../contexts/BookmarkContext";
+import Popup from "reactjs-popup";
 
 export const PostDisplay =({userPost})=>{
     const { _id, content, postImage, likes, comments, username, createdAt} = userPost;
@@ -52,7 +53,12 @@ export const PostDisplay =({userPost})=>{
                 <p className="created_PostedBy">{userDetails?.createdAt}</p>
                 </div>
                 </div>
-                <MoreVertIcon/>
+                <Popup trigger={<MoreVertIcon/>} position="left center">
+                    <div className="popup_main_div">
+                    <li className="popup_li" >Edit Post</li>
+                    <li className="popup_li" onClick={()=>deletePost(_id)}>Delete Post</li>
+                    </div>
+                </Popup>
             </div>
             <div onClick={() => navigate(`/post/${_id}`)}>
                 <p className="content_para">{content}</p>

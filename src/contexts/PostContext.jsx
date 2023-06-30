@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "./AuthContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router";
 
 const PostContext = createContext();
 export const PostProvider =({children})=>{
@@ -15,6 +16,7 @@ export const PostProvider =({children})=>{
     }
     const [postState, postDispatch] = useReducer(postReducer, initialState);
     const {authState} = useAuth();
+    const navigate = useNavigate();
     const getPostData = async()=>{
         try{
             postDispatch({ type: "post_loading", payload: true });
@@ -91,13 +93,36 @@ export const PostProvider =({children})=>{
         }
     }
 
+    const createNewPost = async(postData)=>{
+        try{
+            const {data, status} = await axios.post(`/api/posts`, {postData}, {headers:{authorization: authState?.token }});
+            if(status===201){
+                postDispatch({type:"get_post", payload: data?.posts});
+            }
+        }catch(e){
+            console.log(e);
+        }
+    }
+    const editPost = async(postId, postData)=>{
+        try{
+            const {data, status} = await axios.post(`/api/posts/edit/${postId}`, {postData}, {headers:{authorization: authState?.token}});
+            if(status ===201){
+                postDispatch({type:"get_post", payload: data?.posts});
+            }
+        }catch(e){
+            console.log(e);
+        }
+    }
+
+
+
     useEffect(()=>{
         if(authState?.token){
             getPostData();
         }
     }, [authState?.token]);
     return(
-        <PostContext.Provider value={{postState, postDispatch, getPostData, getUserPost, likePost,dislikePost, deletePost}}>
+        <PostContext.Provider value={{postState, postDispatch, getPostData, getUserPost, likePost,dislikePost, deletePost, createNewPost}}>
             {children}
         </PostContext.Provider>
     )
