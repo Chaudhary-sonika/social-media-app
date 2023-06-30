@@ -11,12 +11,14 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import "../components/cssComponent/PostDisplay.css";
 import { useNavigate } from "react-router";
+import { useBookmark } from "../contexts/BookmarkContext";
 
 export const PostDisplay =({userPost})=>{
     const { _id, content, postImage, likes, comments, username, createdAt} = userPost;
     const {userState} = useUser();
     const {authState} = useAuth();
     const {likePost,dislikePost, deletePost} = usePost();
+    const {bookmarkState, addBookmarkData, removeBookmarkData} = useBookmark();
     const [userDetails, setUserDetails] = useState({});
     const navigate = useNavigate();
     // console.log(userPost, "User");
@@ -30,7 +32,7 @@ export const PostDisplay =({userPost})=>{
        return userPost?.likes?.likedBy.filter((user)=> user?._id === authState?.user?._id).length !== 0;
     }
     const bookmarkedByUser =()=>{
-        return 
+        return  bookmarkState?.bookmark?.filter((post) => post._id === _id)?.length !== 0;
     }
     const likeHandlerToggle =()=>{
         if(likedByUser()) {
@@ -71,10 +73,10 @@ export const PostDisplay =({userPost})=>{
                  </div>
                  <div>
                   {bookmarkedByUser() ? (
-                    <div>
+                    <div onClick={()=>removeBookmarkData(_id)}>
                         <BookmarkIcon/><span>Bookmarked</span>
                     </div>
-                  ):(<div>
+                  ):(<div onClick={()=> addBookmarkData(_id)}>
                     <BookmarkBorderIcon/><span>Bookmark</span>
                   </div>)}
                  </div>
