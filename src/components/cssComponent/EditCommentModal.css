@@ -1,0 +1,54 @@
+
+.editcomment_wrapper{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top:0;
+    background-color: rgba(189, 189, 189, 0.9);
+}
+.modal_container{
+    padding: 1rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    max-width: 30rem;
+    border-radius: 0.5rem;
+}
+.edit_textarea{
+    min-width: 50%;
+    padding: 0.5rem;
+    min-height: 20vh;
+    resize: none;
+    border: none;
+    outline: none;
+}
+.modal_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.btn_header{
+    height: 4vh;
+    background-color: #d1fae5;
+    border: 1px solid #047857;
+    border-radius: 0.25rem;
+}
+.btn_header:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.btn_save_cancel{
+    background-color: #d1fae5;
+    border: 1px solid #047857;
+    border-radius: 0.25rem;
+    margin-left: 0.5rem;
+}
+.btn_save_cancel:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

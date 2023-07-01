@@ -3,7 +3,7 @@ import { usePost } from "../contexts/PostContext";
 import CancelIcon from '@mui/icons-material/Cancel';
 import "../components/cssComponent/EditPostModal.css";
 import { useEffect } from "react";
-export const EditPostModel = ({userPost, setShowEditPostModal, showEditPostModal})=>{
+export const EditPostModel = ({userPost, setShowEditPostModal})=>{
     const [postValue, setPostValue] = useState({_id: userPost?._id,
      content: userPost?.content,
      imageUrl: userPost?.postImage,});

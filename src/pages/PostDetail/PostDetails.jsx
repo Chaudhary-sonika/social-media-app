@@ -11,6 +11,7 @@ import "../PostDetail/PostDetails.css";
 import { useComment } from "../../contexts/CommentContext";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import { EditCommentmodal } from "../../components/EditCommentModal";
 
 export const PostDetails =()=>{
     document.title = "NetLink | Post Details";
@@ -22,7 +23,7 @@ export const PostDetails =()=>{
     const [postDetails, setPostDetails] = useState({});
     const [postLoading, setPostLoading] = useState(false);
     const [commentInput, setCommentInput] = useState("");
-
+    const [showEditModal, setShowEditModal] = useState(false);
     const getPostDetails = async () => {
         try {
           setPostLoading(true);
@@ -47,6 +48,7 @@ export const PostDetails =()=>{
         <div>
             <h1>Post Details</h1>
             <div>
+              
                 {postLoading ? (<ClipLoader/>):(<div>
                     <PostDisplay userPost={postDetails}/>
                     <div>
@@ -59,6 +61,7 @@ export const PostDetails =()=>{
                       </div>
                         {postDetails?.comments?.map((comm)=>(
                             <div className="comment_div">
+                              {showEditModal && (<EditCommentmodal setShowEditModal={setShowEditModal} showEditModal={showEditModal} postId={postDetails?._id} comment={comm}/>)}
                             <div className="avatar_Div_postedBy" key={comm?._id}>
                             <img src={comm?.profileAvatar} alt="avatar" className="profile_Avatar"/>
                             <div className="NU_Div">
@@ -70,7 +73,7 @@ export const PostDetails =()=>{
                             <div className="comm_delete_div">
                             <p style={{textAlign:"left"}}>{comm?.comment}</p>
                             <div className="edit_trash_div">
-                            <span className="trash_span"><EditIcon/></span>
+                            <span className="trash_span" onClick={()=>setShowEditModal(true)}><EditIcon/></span>
                             <span onClick={()=> deleteComments(postDetails?._id, comm?._id)} className="trash_span"><DeleteIcon/></span>
                             </div>
                             </div>
