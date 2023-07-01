@@ -5,7 +5,7 @@
     right: 0;
     bottom: 0;
     top:0;
-    background-color: rgba(189, 189, 189, 0.9);
+    background-color: rgba(189, 189, 189, 0.5);
 }
 .modal_container{
     padding: 1rem;
@@ -17,7 +17,7 @@
     max-width: 30rem;
     border-radius: 0.5rem;
 }
-.edit_textarea{
+.comm_edit_textarea{
     min-width: 50%;
     padding: 0.5rem;
     min-height: 20vh;
@@ -25,29 +25,29 @@
     border: none;
     outline: none;
 }
-.modal_header{
+.comm_modal_header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.btn_header{
+.comm_btn_header{
     height: 4vh;
     background-color: #d1fae5;
     border: 1px solid #047857;
     border-radius: 0.25rem;
 }
-.btn_header:hover{
+.comm_btn_header:hover{
     background-color: black;
     color: white;
     cursor: pointer;
 }
-.btn_save_cancel{
+.comm_btn_save_cancel{
     background-color: #d1fae5;
     border: 1px solid #047857;
     border-radius: 0.25rem;
     margin-left: 0.5rem;
 }
-.btn_save_cancel:hover{
+.comm_btn_save_cancel:hover{
     background-color: black;
     color: white;
     cursor: pointer;
