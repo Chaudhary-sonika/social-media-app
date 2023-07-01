@@ -46,7 +46,7 @@ export const Home =()=>{
             {postState.postLoading && (<ClipLoader/>)}
             <div>
                 <div className="post_input_div">
-                    <input className="post_inputArea" value={inputPost} onChange={(e)=>setInputPost(e.target.value)}  placeholder="What is going on...."/>
+                    <input className="post_inputArea" value={inputPost} onChange={(e)=>setInputPost(e.target.value)}  placeholder="Share your thoughts...."/>
                     <button className="button_post" onClick={()=>{createNewPost(inputPost); setInputPost("");}}>Post</button>
                 </div>
                 {userFeed?.length ===0 && (<h1>No Posts.... </h1>)}

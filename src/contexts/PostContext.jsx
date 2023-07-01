@@ -122,7 +122,7 @@ export const PostProvider =({children})=>{
         }
     }, [authState?.token]);
     return(
-        <PostContext.Provider value={{postState, postDispatch, getPostData, getUserPost, likePost,dislikePost, deletePost, createNewPost}}>
+        <PostContext.Provider value={{postState, postDispatch, getPostData, getUserPost, likePost,dislikePost, deletePost, createNewPost, editPost}}>
             {children}
         </PostContext.Provider>
     )

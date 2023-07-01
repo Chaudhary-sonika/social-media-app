@@ -13,7 +13,7 @@ import "../components/cssComponent/PostDisplay.css";
 import { useNavigate } from "react-router";
 import { useBookmark } from "../contexts/BookmarkContext";
 import Popup from "reactjs-popup";
-
+import { EditPostModel } from "./EditPostModel";
 export const PostDisplay =({userPost})=>{
     const { _id, content, postImage, likes, comments, username, createdAt} = userPost;
     const {userState} = useUser();
@@ -23,7 +23,8 @@ export const PostDisplay =({userPost})=>{
     const [userDetails, setUserDetails] = useState({});
     const navigate = useNavigate();
     // console.log(userPost, "User");
-
+    
+    const [showEditPostModal, setShowEditPostModal] = useState(false);
 
     useEffect(()=>{
     setUserDetails(userState.find((user) => user.username === username));
@@ -45,6 +46,13 @@ export const PostDisplay =({userPost})=>{
     // console.log(likedByUser(), "like");
     return(
         <div className="post_Main_Div">
+            {showEditPostModal && (
+           <EditPostModel
+             userPost={userPost}
+             setShowEditPostModal={setShowEditPostModal}
+             showEditPostModal={showEditPostModal}
+             />
+             )}
             <div className="post_header_div">
                 <div className="avatar_Div_postedBy">
                 <img src={userDetails?.profileAvatar} alt="avatar" className="profile_Avatar"/>
@@ -55,7 +63,7 @@ export const PostDisplay =({userPost})=>{
                 </div>
                 <Popup trigger={<MoreVertIcon/>} position="left center">
                     <div className="popup_main_div">
-                    <li className="popup_li" >Edit Post</li>
+                    <li className="popup_li"onClick={()=>setShowEditPostModal(true)} >Edit Post</li>
                     <li className="popup_li" onClick={()=>deletePost(_id)}>Delete Post</li>
                     </div>
                 </Popup>
