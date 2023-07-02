@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useAuth } from "../../contexts/AuthContext";
 import { useUser } from "../../contexts/UserContext";
 import { usePost } from "../../contexts/PostContext";
@@ -24,6 +24,7 @@ export const PostDetails =()=>{
     const [postLoading, setPostLoading] = useState(false);
     const [commentInput, setCommentInput] = useState("");
     const [showEditModal, setShowEditModal] = useState(false);
+    const navigate = useNavigate();
     const getPostDetails = async () => {
         try {
           setPostLoading(true);
@@ -62,7 +63,7 @@ export const PostDetails =()=>{
                         {postDetails?.comments?.map((comm)=>(
                             <div className="comment_div">
                               {showEditModal && (<EditCommentmodal setShowEditModal={setShowEditModal} showEditModal={showEditModal} postId={postDetails?._id} comment={comm}/>)}
-                            <div className="avatar_Div_postedBy" key={comm?._id}>
+                            <div className="avatar_Div_postedBy" key={comm?._id} onClick={()=>navigate(`/userprofile/${comm?.username}`)}>
                             <img src={comm?.profileAvatar} alt="avatar" className="profile_Avatar"/>
                             <div className="NU_Div">
                             <h5 className="name_PostedBy">{comm?.fullName}

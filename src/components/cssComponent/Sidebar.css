@@ -55,6 +55,10 @@
     flex-direction: row;
    margin-left: 2rem;
 }
+.profile_last_div:hover{
+    cursor: pointer;
+    background-color: #f8fafc;
+}
 .profile_last_div img{
     width: 4rem;
     height: 4rem;
@@ -118,4 +122,11 @@
     margin-top: -1.5rem;
     font-size: small;
     color: #047857;
+}
+.navbar_username{
+    color:#047857;
+}
+.navbar_username:hover{
+    cursor: pointer;
+    font-weight: 800;
 }

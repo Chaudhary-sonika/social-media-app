@@ -54,7 +54,7 @@ export const PostDisplay =({userPost})=>{
              />
              )}
             <div className="post_header_div">
-                <div className="avatar_Div_postedBy">
+                <div className="avatar_Div_postedBy" onClick={()=>navigate(`/userprofile/${userDetails?.username}`)}>
                 <img src={userDetails?.profileAvatar} alt="avatar" className="profile_Avatar"/>
                 <div className="NU_Div">
                 <h5 className="name_PostedBy">{userDetails?.firstName} {userDetails?.lastName}</h5>

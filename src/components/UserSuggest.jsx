@@ -3,17 +3,16 @@ import { usePost } from "../contexts/PostContext";
 import { useUser } from "../contexts/UserContext";
 import { ClipLoader } from "react-spinners";
 import "./cssComponent/UserSuggest.css";
+import { useNavigate } from "react-router";
 export const UserSuggest = ()=>{
     const {authState} = useAuth();
     const {getUserPost} = usePost();
     const {userState, userLoading, followUser, unfollowUser} = useUser();
+    const navigate = useNavigate();
     const isFollow = (userId)=> userState
     ?.find((user) => user._id === userId)
     ?.followers.some((user) => user._id === authState?.user?._id);
-        //  authState?.user?.followers?.find((user)=>
-        //     user?._id === userId)
-   
-    console.log(isFollow(3), "Abhi");
+       
     return(
         <div>
           {userLoading ? (<ClipLoader/>):(
@@ -21,7 +20,7 @@ export const UserSuggest = ()=>{
             <div key={user._id} className="rightBar_main_Div">
            {user?.username !== authState?.user?.username ?(
             <div key={user?._id} className="right_bar_user_tile">
-             <div className="user_profile_div">
+             <div className="user_profile_div" onClick={()=>navigate(`/userprofile/${user?.username}`)}>
                 <img src={user?.profileAvatar} alt="avatar" className="right_bar_avatar"/>
                 <div>
                     <h5 className="name_hTag">{`${user?.firstName} ${user?.lastName}`}</h5>

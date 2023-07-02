@@ -8,6 +8,17 @@
 .h1_user{
     margin: auto;
 }
+.profile_edit_div{
+    background-color: #d1fae5;
+
+}
+.edit_icon{
+   text-align: right; 
+   padding-right: 1rem;
+   padding-top: 1rem;
+   padding-bottom: 0rem;
+   margin-bottom: -1rem;
+}
 .profile_header_div{
     display: flex;
     flex-direction: row;
@@ -26,6 +37,7 @@ margin-left: 1.5rem;
 line-height: 2px;
 text-align: left;
 }
+
 .name_header_div h5{
     margin-top: -6rem;
     

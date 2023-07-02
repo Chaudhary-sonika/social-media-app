@@ -9,6 +9,11 @@
     
     justify-content: left;
     padding-left: 20%;
+    
+}
+.user_profile_div:hover{
+    cursor: pointer;
+    
 }
 .right_bar_user_tile button{
    background-color: #d1fae5;

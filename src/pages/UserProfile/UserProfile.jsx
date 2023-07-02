@@ -9,15 +9,21 @@ import { useEffect } from "react";
 import InterestsIcon from '@mui/icons-material/Interests';
 import LinkIcon from '@mui/icons-material/Link';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import EditIcon from '@mui/icons-material/Edit';
 import { PostDisplay } from "../../components/PostDisplay";
+import { EditProfileModal } from "../../components/EditProfileModal";
+import { useParams } from "react-router";
+import { ClipLoader } from "react-spinners";
 export const UserProfile =()=>{
     document.title = "NetLink | Profile";
    const {userState} = useUser();
    const {postState, getUserPost} = usePost();
    const {authState} = useAuth();
-   const {username, profileAvatar, firstName, lastName} = authState?.user;
+   const {username} = useParams();
+   const { profileAvatar, firstName, lastName} = authState?.user;
   const [userData, setUserData] = useState({});
   const [dataLoading, setDataLoading] = useState(false);
+  const [editProfileModal, setEditProfileModal] = useState(false);
   
   const getUserDetails =async()=>{
     try{
@@ -35,26 +41,32 @@ export const UserProfile =()=>{
         console.log(e);
     }
   };
-  console.log(postState, "sonika");
+  console.log(userData, "userData");
   useEffect(()=>{
     getUserDetails();
-  }, [username, postState.post, userState])
+  }, [username, postState.post, userState]);
     return(
         <div>
             <div className="user-header">
                <h1 className="h1_user">User Profile</h1>
             </div>
             <div>
+              {editProfileModal && (<EditProfileModal setEditProfileModal={setEditProfileModal}/>)}
                 <div >
+                  {dataLoading && (<ClipLoader/>)}
+                  <div className="profile_edit_div">
+                  <div className="edit_icon" onClick={()=>setEditProfileModal(true)}><EditIcon/></div>
                   <div className="profile_header_div">
-                    <img className="profile_header_img" src={profileAvatar} alt="pic"/>
+                    <img className="profile_header_img" src={userData?.profileAvatar} alt="pic"/>
                     <div className="name_header_div">
-                     <h3>{firstName} {lastName}</h3> 
+                     <h3>{userData?.firstName} {userData?.lastName}</h3> 
                      <h5>@{username}</h5>
-                     <p><InterestsIcon style={{fontSize:"medium"}}/>  {authState?.user?.bio}</p> 
-                     <p><LinkIcon style={{fontSize:"medium"}}/>  {authState?.user?.website} </p>
-                     <p><CalendarTodayIcon style={{fontSize:"medium"}}/>  {authState?.user?.createdAt}</p> 
+                     <p><InterestsIcon style={{fontSize:"medium"}}/>  {userData?.bio}</p> 
+                     <p><LinkIcon style={{fontSize:"medium"}}/>  {userData?.website} </p>
+                     <p><CalendarTodayIcon style={{fontSize:"medium"}}/>  {userData?.createdAt}</p> 
                     </div>
+                  </div>
+                   
                   </div>
                   <div className="post_follower_divP">
                    <p>{postState?.userPost?.length +

@@ -1,4 +1,4 @@
-import { NavLink, Outlet} from "react-router-dom";
+import { NavLink, Outlet, useNavigate} from "react-router-dom";
 import "./cssComponent/Sidebar.css";
 import { useAuth } from "../contexts/AuthContext";
 import ExploreIcon from '@mui/icons-material/Explore';
@@ -16,6 +16,7 @@ export const Sidebar =()=>{
     const {userState} = useUser();
     const [searchInput, setSearchInput] = useState("");
     const filteredSearch = searchInput?.trim().length > 0 && userState?.filter((user)=>user?.firstName?.toLowerCase().includes(searchInput.trim().toLowerCase()) || user?.lastName?.toLowerCase().includes(searchInput.trim().toLowerCase()) || user?.username?.toLowerCase().includes(searchInput.trim().toLowerCase()));
+    const navigate = useNavigate();
     return(
         <div className="sidebar-mainDiv">
             <div className="list_Div_sidebar">
@@ -31,13 +32,13 @@ export const Sidebar =()=>{
                   <NavLink className="link-sidebar" to="/bookmark"><BookmarkBorderIcon/> Bookmark</NavLink>  
                 </li>
                 <li className="li-sidebar">
-                  <NavLink className="link-sidebar"  to="/userprofile"> <AccountCircleIcon/> Profile</NavLink>
+                  <NavLink className="link-sidebar"  to={`/userprofile/${username}`}> <AccountCircleIcon/> Profile</NavLink>
                 </li>
                 <li className="li-sidebar">    
                     <button onClick={userLogout}><LogoutIcon/>Logout</button>
                 </li>
             </ul>
-            <div className="profile_last_div">
+            <div className="profile_last_div" onClick={()=>navigate(`/userprofile/${username}`)}>
                 {profileAvatar?(<img src={profileAvatar} alt="profileAvatar" />):(<div>
                 {firstName?.slice(0, 1)}
               </div>)}
@@ -62,7 +63,7 @@ export const Sidebar =()=>{
                     {filteredSearch?.length >0 && (
                         <div>
                             {filteredSearch?.map((user)=>(
-                                <div className="popup_detail_div">
+                                <div className="popup_detail_div" onClick={()=>navigate(`/userprofile/${user?.username}`)}>
                                     <img src={user?.profileAvatar} alt="avatar" className="popup_img"/>
                                     <div>
                                      <h5 className="popup_name_hTag">{user?.firstName} {user?.lastName}</h5>
