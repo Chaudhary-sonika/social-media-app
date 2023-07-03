@@ -14,6 +14,7 @@ import { PostDisplay } from "../../components/PostDisplay";
 import { EditProfileModal } from "../../components/EditProfileModal";
 import { useParams } from "react-router";
 import { ClipLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 export const UserProfile =()=>{
     document.title = "NetLink | Profile";
    const {userState} = useUser();
@@ -48,57 +49,58 @@ export const UserProfile =()=>{
     return(
         <div>
             <div className="user-header">
-               <h1 className="h1_user">User Profile</h1>
+               <h2 className="h1_user">User Profile</h2>
             </div>
             <div>
               {editProfileModal && (<EditProfileModal userData={userData} setEditProfileModal={setEditProfileModal}/>)}
+              {dataLoading ?(<ClipLoader/>):(
                 <div >
-                  {dataLoading && (<ClipLoader/>)}
-                  <div className="profile_edit_div">
-                  <div className="edit_icon" onClick={()=>setEditProfileModal(true)}><EditIcon/></div>
-                  <div className="profile_header_div">
-                    <img className="profile_header_img" src={userData?.profileAvatar} alt="pic"/>
-                    <div className="name_header_div">
-                     <h3>{userData?.firstName} {userData?.lastName}</h3> 
-                     <h5>@{username}</h5>
-                     <p><InterestsIcon style={{fontSize:"medium"}}/>  {userData?.bio}</p> 
-                     <p><LinkIcon style={{fontSize:"medium"}}/>  {userData?.website} </p>
-                     <p><CalendarTodayIcon style={{fontSize:"medium"}}/>  {userData?.createdAt}</p> 
-                    </div>
+                <div className="profile_edit_div">
+                <div className="edit_icon" onClick={()=>setEditProfileModal(true)}><EditIcon/></div>
+                <div className="profile_header_div">
+                  <img className="profile_header_img" src={userData?.profileAvatar} alt="pic"/>
+                  <div className="name_header_div">
+                   <h3>{userData?.firstName} {userData?.lastName}</h3> 
+                   <h5>@{username}</h5>
+                   <p><InterestsIcon style={{fontSize:"medium"}}/>  {userData?.bio}</p> 
+                   {userData?.website && (<p><LinkIcon style={{fontSize:"medium"}}/> <Link target="_blank" to={`${userData?.website}`}>{userData?.website}</Link></p>)}
+                   <p><CalendarTodayIcon style={{fontSize:"medium"}}/>  {userData?.createdAt}</p> 
                   </div>
-                   
-                  </div>
-                  <div className="post_follower_divP">
-                   <p>{postState?.userPost?.length +
-                      `${postState?.userPost?.length === 1 ? " Post" : " Posts"}`}
+                </div>
+                 
+                </div>
+                <div className="post_follower_divP">
+                 <p>{postState?.userPost?.length +
+                    `${postState?.userPost?.length === 1 ? " Post" : " Posts"}`}
+                 </p> 
+                 <p>
+                   {userData?.followers?.length +
+                    `${
+                      userData?.followers?.length === 1
+                        ? " Follower"
+                        : " Followers"
+                    }`}
+                  </p>
+                  <p>
+                  {userData?.following?.length +
+                    `${
+                      userData?.following?.length === 1
+                        ? " Following"
+                        : " Followings"
+                    }`}
                    </p> 
-                   <p>
-                     {userData?.followers?.length +
-                      `${
-                        userData?.followers?.length === 1
-                          ? " Follower"
-                          : " Followers"
-                      }`}
-                    </p>
-                    <p>
-                    {userData?.following?.length +
-                      `${
-                        userData?.following?.length === 1
-                          ? " Following"
-                          : " Followings"
-                      }`}
-                     </p> 
-                  </div>
                 </div>
+              </div>
+              
+              )}
+              <div>
+              {postState?.userPost?.map((post)=>(
                 <div>
-                  {postState?.userPost?.map((post)=>(
-                    <div>
-                       <PostDisplay userPost={post}/>
-                    </div>
-                  ))}
-                 
-                 
+                   <PostDisplay userPost={post}/>
                 </div>
+              ))}
+             </div> 
+                
             </div>
         </div>
     )

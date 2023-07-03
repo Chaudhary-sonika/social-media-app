@@ -37,7 +37,10 @@ export const Home =()=>{
     
     return(
         <div className="home-main-div">
-            <h1 className="home-header"> Home </h1>
+            
+            <h2 className="home-header"> Home </h2>
+            
+            
             <FilterBy/>
             {postState.postLoading && (<ClipLoader/>)}
             <div>

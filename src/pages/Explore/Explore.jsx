@@ -20,7 +20,7 @@ export const Explore =()=>{
     }
     return(
         <div>
-            <h1 className="explore-header">Explore </h1>
+            <h2 className="explore-header">Explore </h2>
             <FilterBy/>
             {postState.postLoading && (<ClipLoader/>)}
             <div>

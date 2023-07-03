@@ -1,9 +1,10 @@
 .home-header{
-    border-bottom: 1px solid black;
+    color: #047857;
     position: sticky;
     inset: 10% 0 100% 0;
     background-color: white;
-    
+    margin-top: 0rem;
+    /* opacity: 0.5; */
 }
 h3{
     margin-bottom: 8rem;

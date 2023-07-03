@@ -1,6 +1,7 @@
 
 .explore-header{
-    border-bottom: 1px solid black;
+    color: #047857;
+    margin-top: 0rem;
     position: sticky;
     inset: 10% 0 100% 0;
     background-color: white;

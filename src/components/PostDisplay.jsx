@@ -68,16 +68,18 @@ export const PostDisplay =({userPost})=>{
                     </div>
                 </Popup>
             </div>
-            <div onClick={() => navigate(`/post/${_id}`)}>
+            <div>
+                <div onClick={() => navigate(`/post/${_id}`)}>
                 <p className="content_para">{content}</p>
                 {postImage && (<img src={postImage} alt="postImage" className="Post_Image"/>)}
                 <div className="likes_Div">
                   <p>{likes?.likeCount} Likes</p>
                   <p style={{marginLeft:"10%"}}>{comments?.length>0 && comments?.length + `${comments.length === 1 ? " comment" : " comments"}`}</p>
                 </div>
+                </div>
                 <hr/>
                 <div className="like_comm_book_div">
-                 <div onClick={likeHandlerToggle}>
+                 <div className="tab_like_bm" onClick={likeHandlerToggle}>
                     {likedByUser() ? (<div>
                      <FavoriteIcon/><span> Liked</span>
                     </div>):(<div><FavoriteBorderIcon/><span>Like</span></div>)}
@@ -85,7 +87,7 @@ export const PostDisplay =({userPost})=>{
                  <div>
                   <CommentIcon/><span>comment</span>
                  </div>
-                 <div>
+                 <div className="tab_like_bm">
                   {bookmarkedByUser() ? (
                     <div onClick={()=>removeBookmarkData(_id)}>
                         <BookmarkIcon/><span>Bookmarked</span>

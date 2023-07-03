@@ -1,16 +1,18 @@
 .user-header{
-    border-bottom: 1px solid black;
+    color: #047857;
+    margin-top: 0rem;
     position: sticky;
     inset: 10% 0 100% 0;
     background-color: white;
-    height: 8vh;
+    
 }
 .h1_user{
     margin: auto;
 }
 .profile_edit_div{
     background-color: #d1fae5;
-
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 .edit_icon{
    text-align: right; 
@@ -47,4 +49,7 @@ text-align: left;
     flex-direction: row;
     justify-content: space-evenly;
     background-color: #d1fae5;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border-radius: 0 0 1rem 1rem;
 }

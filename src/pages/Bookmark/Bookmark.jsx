@@ -11,10 +11,15 @@ export const Bookmark =()=>{
     console.log(bookmarkState, "bokSo");
     return(
         <div>
-            <h1 className="bookmark-header">
-             Bookmarked post here
-            </h1>
-            {bookmarkState?.bookmark?.length===0 ? (<h2>No Bookmark Data</h2>):(
+            <h2 className="bookmark-header">
+             Bookmarked Post
+            </h2>
+            {bookmarkState?.bookmark?.length===0 ? (<div>
+                <h3>No Bookmark Data...</h3>
+                <div>
+                    <img className="no_data_foound" src="https://res.cloudinary.com/dej1tezib/image/upload/v1688400867/3009287_jtglez.jpg" alt="no data found"/>
+                </div>
+            </div>):(
                 <div>
                     {bookmarkState?.isBookmarkLoading ? (<ClipLoader/>):(
                         <div>
