@@ -52,6 +52,104 @@ export const posts = [
       },
     ],
   },
+  {
+    _id: uuid(),
+    content:
+      "Exciting times in the world of tech! Just read about the latest advancements in artificial intelligence and machine learning. The future is here, and it's mind-blowing! #TechRevolution #AI #ML",
+    likes: {
+      likeCount: 52,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    fullName: "Adarsh Balika",
+    postImage:
+      "https://imageio.forbes.com/specials-images/imageserve/648aaa9fac6d92c810b12f50/Why-Companies-Are-Vastly-Underprepared-For-The-Risks-Posed-By-AI/960x0.jpg?height=406&width=711&fit=bounds",
+    createdAt: "2023-06-21",
+    updatedAt: formatDate(),
+    comments: [],
+  },
+  {
+    _id: uuid(),
+    content:
+      "Code is the symphony that orchestrates our digital world, weaving elegance and functionality into every line. Each character holds the power to create, to innovate, and to transform. Embrace the beauty of coding, for it is the language of possibilities and dreams. #CodeLove #TechPassion",
+    likes: {
+      likeCount: 41,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    fullName: "Adarsh Balika",
+    postImage:
+      "https://cleverdodo.blob.core.windows.net/media/mu/media/2014/08/15/mainprogram.PNG",
+    createdAt: "2023-07-3",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment: "What a beautiful lines!",
+        fullName: "Sonika Chaudhary",
+        username: "IAm_Sonika",
+
+        profileAvatar:
+          "https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+  {
+    _id: uuid(),
+    content:
+      "Nature's wonders never cease to amaze me. Just returned from a breathtaking hike in the Grand Canyon, and the beauty and vastness of the landscape left me speechless. #NatureLover #BucketListAdventure",
+    likes: {
+      likeCount: 89,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    fullName: "Adarsh Balika",
+    postImage:
+      "https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-858637934.jpg",
+    createdAt: "2022-10-3",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        comment: "Such a beautiful view!",
+        fullName: "Abhishek Chaudhary",
+        username: "Abhiii",
+
+        profileAvatar:
+          "https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        comment: "What a beautiful lines!",
+        fullName: "Sonika Chaudhary",
+        username: "IAm_Sonika",
+
+        profileAvatar:
+          "https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
 
   {
     _id: uuid(),

@@ -34,11 +34,7 @@ export const Home =()=>{
     }else if(postState?.sortBy === "Latest"){
         userFeed = userFeed?.sort((a, b)=>new Date(b.createdAt)- new Date(a.createdAt));
     }
-    // console.log(userLoggedIn, "loggedIn");
-    // console.log(userFeed, "home");
-    // console.log(FollowerUserPost, "Follower");
-    // console.log(FollowingUserPost, "following");
-    // console.log(postState, "postState");
+    
     return(
         <div className="home-main-div">
             <h1 className="home-header"> Home </h1>

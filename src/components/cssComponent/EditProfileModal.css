@@ -16,3 +16,48 @@
     max-width: 30rem;
     border-radius: 0.5rem;
 }
+.edit_profile_img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2.5rem;
+}
+.edit_profile_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.edit_profile_info{
+    display: flex;
+    flex-direction: column; 
+    line-height: 2rem;
+}
+.Button_addAvatar{
+    background-color: #d1fae5;
+    color: #047857;
+    border-radius: 0.25rem;
+    width: 30%;
+}
+.button_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.save_Btn_input{
+    background-color: #d1fae5;
+    color: #047857;
+    border-radius: 0.25rem;
+    margin-left: 0.5rem;
+}
+.save_Btn_input:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+.Button_addAvatar:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+#firstName_id{
+    
+}

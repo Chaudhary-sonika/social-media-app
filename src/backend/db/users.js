@@ -5,6 +5,7 @@ import pic4 from "../images/pic4.jpg";
 import pic2 from "../images/pic2.jpg";
 import pic3 from "../images/pic3.jpg";
 import pic5 from "../images/pic5.jpg";
+import adarshBalika from "../images/adarshBalika.png";
 /**
  * User Database can be added here.
  * You can add default users of your wish with different attributes
@@ -19,7 +20,7 @@ export const users = [
     password: "adarsh@123",
     bio: "NeoGrad",
     website: "https://github.com/Chaudhary-sonika",
-    profileAvatar: pic1,
+    profileAvatar: adarshBalika,
     following: [
       {
         _id: 3,
@@ -27,6 +28,13 @@ export const users = [
         username: "Abhiii",
         profileAvatar:
           "https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg",
+      },
+      {
+        _id: 2,
+        fullName: "Sonika Chaudhary",
+        username: "IAm_Sonika",
+        profileAvatar:
+          "https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       },
     ],
     followers: [
@@ -70,6 +78,12 @@ export const users = [
       },
     ],
     followers: [
+      {
+        _id: 1,
+        fullName: "Adarsh Balika",
+        username: "adarshbalika",
+        profileAvatar: adarshBalika,
+      },
       {
         _id: 3,
         fullName: "Abhishek Chaudhary",
@@ -123,6 +137,12 @@ export const users = [
     ],
     followers: [
       {
+        _id: 1,
+        fullName: "Adarsh Balika",
+        username: "adarshbalika",
+        profileAvatar: adarshBalika,
+      },
+      {
         _id: 2,
         fullName: "Sonika Chaudhary",
         username: "IAm_Sonika",
@@ -159,19 +179,19 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
+        _id: 1,
+        fullName: "Adarsh Balika",
+        username: "adarshbalika",
+        profileAvatar: adarshBalika,
+      },
+      {
         _id: 3,
         fullName: "Abhishek Chaudhary",
         username: "Abhiii",
         profileAvatar:
           "https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg",
       },
-      {
-        _id: 5,
-        fullName: "Sakshi Shrotiya",
-        username: "sakshi28",
-        profileAvatar:
-          "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyMlDtD8Hj7njoNHMwottMK41tzbY5Y9FIgmJqVqH_hfE2fZFpl_GzwBDIN3lppKKZLv2BwN85mLUtflm_HTcOEZ3IkuyG0IbvKdIcO-wGK1aDpLkBdJiWzoLVgxYAfQOwLHntI2ln70OVF4IeNlcdpRsAUgMrTC6Vt8l_lUcm4uay0oNJtxAO04rt/s1080/47_Girl-DP-Sohohindi.in_.jpeg",
-      },
+
       {
         _id: 2,
         fullName: "Sonika Chaudhary",
@@ -212,6 +232,12 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
+        _id: 1,
+        fullName: "Adarsh Balika",
+        username: "adarshbalika",
+        profileAvatar: adarshBalika,
+      },
+      {
         _id: 2,
         fullName: "Sonika Chaudhary",
         username: "IAm_Sonika",
@@ -226,15 +252,7 @@ export const users = [
           "https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/813f4928-6cc6-4bc8-a4e4-265f94b4d665/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg?format=1000w",
       },
     ],
-    followers: [
-      {
-        _id: 4,
-        fullName: "Rashmi Khanna",
-        username: "R_Khanna",
-        profileAvatar:
-          "https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/813f4928-6cc6-4bc8-a4e4-265f94b4d665/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg?format=1000w",
-      },
-    ],
+    followers: [],
   },
 
   {
@@ -249,15 +267,7 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     following: [],
-    followers: [
-      {
-        _id: 4,
-        fullName: "Rashmi Khanna",
-        username: "R_Khanna",
-        profileAvatar:
-          "https://images.squarespace-cdn.com/content/v1/58d1b3ff1b631bb1893d108d/813f4928-6cc6-4bc8-a4e4-265f94b4d665/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg?format=1000w",
-      },
-    ],
+    followers: [],
   },
   {
     _id: 7,
@@ -271,14 +281,7 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     following: [],
-    followers: [
-      {
-        _id: 9,
-        fullName: "Xioki",
-        username: "x_lee",
-        profileAvatar: pic2,
-      },
-    ],
+    followers: [],
   },
   {
     _id: 8,

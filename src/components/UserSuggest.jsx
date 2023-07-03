@@ -9,14 +9,17 @@ export const UserSuggest = ()=>{
     const {getUserPost} = usePost();
     const {userState, userLoading, followUser, unfollowUser} = useUser();
     const navigate = useNavigate();
+    // const isFollow = (userId)=> userState
+    // ?.find((user) => user._id === userId)
+    // ?.followers.some((user) => user._id === authState?.user?._id);
+    
     const isFollow = (userId)=> userState
     ?.find((user) => user._id === userId)
     ?.followers.some((user) => user._id === authState?.user?._id);
-       
     return(
         <div>
           {userLoading ? (<ClipLoader/>):(
-          userState?.slice(0, 5)?.map((user)=>(
+          userState?.slice(0, 6)?.map((user)=>(
             <div key={user._id} className="rightBar_main_Div">
            {user?.username !== authState?.user?.username ?(
             <div key={user?._id} className="right_bar_user_tile">

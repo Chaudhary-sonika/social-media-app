@@ -20,7 +20,7 @@ export const UserProfile =()=>{
    const {postState, getUserPost} = usePost();
    const {authState} = useAuth();
    const {username} = useParams();
-   const { profileAvatar, firstName, lastName} = authState?.user;
+  
   const [userData, setUserData] = useState({});
   const [dataLoading, setDataLoading] = useState(false);
   const [editProfileModal, setEditProfileModal] = useState(false);
@@ -41,7 +41,7 @@ export const UserProfile =()=>{
         console.log(e);
     }
   };
-  console.log(userData, "userData");
+  
   useEffect(()=>{
     getUserDetails();
   }, [username, postState.post, userState]);
@@ -51,7 +51,7 @@ export const UserProfile =()=>{
                <h1 className="h1_user">User Profile</h1>
             </div>
             <div>
-              {editProfileModal && (<EditProfileModal setEditProfileModal={setEditProfileModal}/>)}
+              {editProfileModal && (<EditProfileModal userData={userData} setEditProfileModal={setEditProfileModal}/>)}
                 <div >
                   {dataLoading && (<ClipLoader/>)}
                   <div className="profile_edit_div">

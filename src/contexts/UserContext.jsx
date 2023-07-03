@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const UserContext = createContext();
 export const UserProvider =({children})=>{
-    // const token1 =JSON.parse(localStorage.getItem("data"))
+
     const {authState, authDispatch} = useAuth();
     const [userLoading, setUserLoading] = useState(false);
 
@@ -30,30 +30,22 @@ export const UserProvider =({children})=>{
         }
     }
     const followUser = async(userId)=>{
-        // console.log(token1.token, "token");
+        
         try{
             const { data, status } = await axios.post(
                 `/api/users/follow/${userId}`,
                 {},
                 { headers: { authorization: authState?.token } }
               );
-            // const response = await fetch(`/api/users/follow/${userId}`,
-            // { method: "POST",
-            // headers: { authorization: token1.token },
-            //  });
+            
              if (status === 200 || status === 201) {
                 userDispatch({ type: "update_user", payload: data?.followUser });
                 userDispatch({ type: "update_user", payload: data?.user });
+                toast.success("Followed by you!");
               }
             
-            // const data = await response.json();
-            // console.log(data);
-            
-            //     userDispatch({ type: "update_user", payload: {loggedUser: data.user, followedUser: data.followUser} });
-                // userDispatch({ type: "update_user", payload: data?.user });
-            
         }catch(e){
-          console.log(e);
+            toast.error(e.response.data.errors[0]);
         }
     }
 
@@ -67,9 +59,10 @@ export const UserProvider =({children})=>{
           if (status === 200 || status === 201) {
             userDispatch({ type: "update_user", payload: data?.followUser });
             userDispatch({ type: "update_user", payload: data?.user });
+            toast.success("Unfollowed!");
           }
         } catch (e) {
-          console.error(e);
+            toast.error(e.response.data.errors[0]);
         }
       };
     
@@ -83,9 +76,10 @@ export const UserProvider =({children})=>{
           if (status === 201) {
             userDispatch({ type: "update_user", payload: data?.user });
             authDispatch({ type: "set_user", payload: data?.user });
+            toast.success("Profile updated successfully!");
           }
         } catch (e) {
-          console.error(e);
+            toast.error(e.response.data.errors[0]);
         }
       }; 
     useEffect(()=>{
