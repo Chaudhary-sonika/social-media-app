@@ -10,8 +10,8 @@ export const SignUp =()=>{
     const {userSignUp} = useAuth();
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [userSignupDetails, setUserSignupDetails] = useState({
-        firstname:"",
-        lastname:"",
+        firstName:"",
+        lastName:"",
         username:"",
         email:"",
         password:"",
@@ -29,11 +29,11 @@ export const SignUp =()=>{
                 <div className="form_div_name">
                 <div className="name_div">
                     <label for="firstname"><span style={{color:"red"}}>*</span>First Name:</label>
-                    <input required name="firstname" id="firstname"  placeholder="John" value={userSignupDetails.firstname} onChange={(e)=>setUserSignupDetails({...userSignupDetails, firstname: e.target.value})}/>
+                    <input required name="firstname" id="firstname"  placeholder="John" value={userSignupDetails.firstName} onChange={(e)=>setUserSignupDetails({...userSignupDetails, firstName: e.target.value})}/>
                 </div>
                 <div className="name_div">
                     <label for="lastname"><span style={{color:"red"}}>*</span>Last Name:</label>
-                    <input required name="lastname" id="lastname" placeholder="Wick" value={userSignupDetails.lastname} onChange={(e)=>setUserSignupDetails({...userSignupDetails, lastname: e.target.value})}/>
+                    <input required name="lastname" id="lastname" placeholder="Wick" value={userSignupDetails.lastName} onChange={(e)=>setUserSignupDetails({...userSignupDetails, lastName: e.target.value})}/>
                 </div>
                 </div>
                 <div className="user_pass_div">

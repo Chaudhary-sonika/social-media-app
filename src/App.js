@@ -16,7 +16,7 @@ import { PostDetails } from "./pages/PostDetail/PostDetails";
 function App() {
   return (
     <div className="App">
-      <ToastContainer position="bottom-right" autoClose={2000} />
+      <ToastContainer position="bottom-right" autoClose={1500} />
       <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />

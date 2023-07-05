@@ -34,7 +34,7 @@ export const Home =()=>{
     }else if(postState?.sortBy === "Latest"){
         userFeed = userFeed?.sort((a, b)=>new Date(b.createdAt)- new Date(a.createdAt));
     }
-    
+    console.log(userState, "newUser");
     return(
         <div className="home-main-div">
             

@@ -83,8 +83,8 @@ export const UserProvider =({children})=>{
         }
       }; 
     useEffect(()=>{
-        getUserData();
-    }, []);
+        authState?.token && getUserData();
+    }, [authState?.token]);
     
     return(
         <UserContext.Provider value={{getUserData,userLoading, userState, followUser, unfollowUser, editUserdata}}>
