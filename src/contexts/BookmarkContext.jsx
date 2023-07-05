@@ -4,6 +4,7 @@ import { useReducer } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
 const bookmarkReducer =(state, action)=>{
  switch(action.type){
@@ -52,7 +53,7 @@ export const BookmarkProvider =({children})=>{
             if(status === 200||status === 201){
                 bookmarkDispatch({ type: "set_bookmark", payload: data?.bookmarks });
                 bookmarkDispatch({ type: "bookmark_loading", payload: false });
-                console.log(data?.bookmarks, "bookmark");
+                toast.success("Post added in Your Bookmarks!");
             }
         }catch(e){
             console.log(e);
@@ -68,7 +69,8 @@ export const BookmarkProvider =({children})=>{
             });
             if(status===200 || status===201){
                 bookmarkDispatch({ type: "set_bookmark", payload: data?.bookmarks });
-                bookmarkDispatch({ type: "bookmark_loading", payload: false }); 
+                bookmarkDispatch({ type: "bookmark_loading", payload: false });
+                toast.warning("Post removed from your Bookmarks!"); 
             }
         }catch(e){
             console.log(e);

@@ -61,12 +61,12 @@ export const PostDisplay =({userPost})=>{
                 <p className="created_PostedBy">{userDetails?.createdAt}</p>
                 </div>
                 </div>
-                <Popup trigger={<MoreVertIcon/>} position="left center">
+                {(authState?.user?.username===userDetails?.username) && (<Popup trigger={<MoreVertIcon/>} position="left center">
                     <div className="popup_main_div">
                     <li className="popup_li"onClick={()=>setShowEditPostModal(true)} >Edit Post</li>
                     <li className="popup_li" onClick={()=>deletePost(_id)}>Delete Post</li>
                     </div>
-                </Popup>
+                </Popup>)}
             </div>
             <div>
                 <div onClick={() => navigate(`/post/${_id}`)}>

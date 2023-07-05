@@ -56,7 +56,7 @@ export const UserProfile =()=>{
               {dataLoading ?(<ClipLoader/>):(
                 <div >
                 <div className="profile_edit_div">
-                <div className="edit_icon" onClick={()=>setEditProfileModal(true)}><EditIcon/></div>
+                {(authState?.user?.username===userData?.username) &&(<div className="edit_icon" onClick={()=>setEditProfileModal(true)}><EditIcon/></div>)}
                 <div className="profile_header_div">
                   <img className="profile_header_img" src={userData?.profileAvatar} alt="pic"/>
                   <div className="name_header_div">

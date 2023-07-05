@@ -3,6 +3,7 @@ import { createContext } from "react";
 import { useAuth } from "./AuthContext";
 import { usePost } from "./PostContext";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 const CommentContext = createContext();
@@ -18,6 +19,7 @@ export const CommentProvider = ({children})=>{
             );
             if(status === 200 || status === 201){
                 postDispatch({ type: "get_post", payload: data?.posts });
+                toast.success("You added a comment!");
             }
         }catch(e){
             console.log(e);
@@ -32,6 +34,7 @@ export const CommentProvider = ({children})=>{
            );
            if(status ===200 || status === 201){
             postDispatch({ type: "get_post", payload: data?.posts });
+            toast.success("You successfully edit your comment!");
            }
         }catch(e){
             console.log(e);
@@ -46,6 +49,7 @@ export const CommentProvider = ({children})=>{
           });
           if(status === 200 || status ===201){
             postDispatch({ type: "get_post", payload: data?.posts });
+            toast.warning("You deleted your comment!");
           }
         }catch(e){
             console.log(e);

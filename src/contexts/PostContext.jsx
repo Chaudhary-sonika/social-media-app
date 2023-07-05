@@ -55,8 +55,9 @@ export const PostProvider =({children})=>{
             });
             if(status===200 || status ===201){
                 postDispatch({type:"get_post", payload: data?.posts});
+                toast.success("You Liked the post!");
                 return data.posts.find(post => post._id === postId);
-                console.log("hello");
+                
             }
         }catch(e){
             console.log(e);
@@ -72,6 +73,7 @@ export const PostProvider =({children})=>{
             });
             if(status ===200 || status === 201){
                 postDispatch({type:"get_post", payload: data?.posts});
+                toast.success("you removed the liked post!");
             }
         }catch(e){
             console.error(e);
@@ -87,6 +89,7 @@ export const PostProvider =({children})=>{
             });
             if(status === 200 || status === 201){
                 postDispatch({type:"get_post", payload: data?.posts});
+                toast.warning("You delete the Post!");
             }
         }catch(e){
             console.log(e);
@@ -98,6 +101,7 @@ export const PostProvider =({children})=>{
             const {data, status} = await axios.post(`/api/posts`, {postData}, {headers:{authorization: authState?.token }});
             if(status===201){
                 postDispatch({type:"get_post", payload: data?.posts});
+                toast.success("You posted a new Post!");
             }
         }catch(e){
             console.log(e);
@@ -108,6 +112,7 @@ export const PostProvider =({children})=>{
             const {data, status} = await axios.post(`/api/posts/edit/${postId}`, {postData}, {headers:{authorization: authState?.token}});
             if(status ===201){
                 postDispatch({type:"get_post", payload: data?.posts});
+                toast.success("You successfully edit your post!");
             }
         }catch(e){
             console.log(e);
