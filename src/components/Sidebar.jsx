@@ -39,8 +39,8 @@ export const Sidebar =()=>{
                 </li>
             </ul>
             <div className="profile_last_div" onClick={()=>navigate(`/userprofile/${username}`)}>
-                {profileAvatar?(<img src={profileAvatar} alt="profileAvatar" />):(<div>
-                {firstName?.slice(0, 1)}
+                {profileAvatar?(<img src={profileAvatar} alt="profileAvatar" />):(<div className="not_avatar">
+                <h4>{firstName?.slice(0, 1)}</h4>
               </div>)}
                 <div>
                         <p className="p_name_div">{firstName} {lastName}</p>
