@@ -17,22 +17,27 @@ export const Sidebar =()=>{
     const [searchInput, setSearchInput] = useState("");
     const filteredSearch = searchInput?.trim().length > 0 && userState?.filter((user)=>user?.firstName?.toLowerCase().includes(searchInput.trim().toLowerCase()) || user?.lastName?.toLowerCase().includes(searchInput.trim().toLowerCase()) || user?.username?.toLowerCase().includes(searchInput.trim().toLowerCase()));
     const navigate = useNavigate();
+    const getStyles = ({ isActive }) => ({
+        backgroundColor: isActive ? "#d1fae5" : "",
+        borderRadius: isActive ? "0.5rem" : "",
+        
+      });
     return(
         <div className="sidebar-mainDiv">
             <div className="list_Div_sidebar">
             <ul className="ul-list">
                 
                 <li className="li-sidebar">
-                    <NavLink className="link-sidebar" to="/"><HomeIcon/> Home</NavLink>
+                    <NavLink style={getStyles} className="link-sidebar" to="/"><HomeIcon/> Home</NavLink>
                 </li>
                 <li className="li-sidebar">
-                <NavLink className="link-sidebar" to="/explore"><ExploreIcon/> Explore</NavLink>
+                <NavLink style={getStyles} className="link-sidebar" to="/explore"><ExploreIcon/> Explore</NavLink>
                 </li>    
                 <li className="li-sidebar">    
-                  <NavLink className="link-sidebar" to="/bookmark"><BookmarkBorderIcon/> Bookmark</NavLink>  
+                  <NavLink style={getStyles} className="link-sidebar" to="/bookmark"><BookmarkBorderIcon/> Bookmark</NavLink>  
                 </li>
                 <li className="li-sidebar">
-                  <NavLink className="link-sidebar"  to={`/userprofile/${username}`}> <AccountCircleIcon/> Profile</NavLink>
+                  <NavLink style={getStyles} className="link-sidebar"  to={`/userprofile/${username}`}> <AccountCircleIcon/> Profile</NavLink>
                 </li>
                 <li className="li-sidebar">    
                     <button onClick={userLogout}><LogoutIcon/>Logout</button>

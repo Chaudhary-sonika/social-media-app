@@ -28,6 +28,7 @@
     color: black;
     font-size:large;
     font-weight: 600;
+    padding: 0.5rem;
 }
 
 .li-sidebar button{
@@ -139,4 +140,15 @@
 .navbar_username:hover{
     cursor: pointer;
     font-weight: 800;
+}
+@media screen and (max-width: 360px){
+ .list_Div_sidebar{
+    display: none;
+ }
+ .right_bar_div{
+    display: none;
+ }
+ .outlet-component{
+    width: 100%;
+ }
 }
