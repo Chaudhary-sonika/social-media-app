@@ -9,7 +9,7 @@ export const Navbar =()=>{
         <div className='navBar_div'> 
             <h1><Diversity3Icon/> <span style={{color:"#047857"}}>Net</span>Link</h1>
             <div>
-            <h4><span className='navBar_rightDiv'><DarkModeIcon/></span>Hello! <span className='navbar_username' onClick={()=>navigate(`/userprofile/${authState?.user?.username}`)}>{authState?.user?.firstName} {authState?.user?.lastName}</span></h4>
+            <h4>Hello! <span className='navbar_username' onClick={()=>navigate(`/userprofile/${authState?.user?.username}`)}>{authState?.user?.firstName} {authState?.user?.lastName}</span></h4>
             
             </div>
         </div>

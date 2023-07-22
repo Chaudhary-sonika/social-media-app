@@ -24,6 +24,10 @@
     width: 60%;
 }
 .link-sidebar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
     color: black;
     font-size:large;
@@ -32,6 +36,10 @@
 }
 
 .li-sidebar button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
     border: none;
     font-size: 18px;
     font-weight: 600;
@@ -117,6 +125,21 @@
     border-radius: 0.5rem;
     
 }
+.popup_main_div{
+    box-shadow: 0 0 1px;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.follow_button{
+ background-color: #d1fae5;
+ border: 1px solid #047857;
+border-radius: 4px;
+}
+.follow_button:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+   }
 .popup_detail_div{
     display: flex;
     flex-direction: row;
@@ -141,8 +164,32 @@
     cursor: pointer;
     font-weight: 800;
 }
-@media screen and (max-width: 360px){
+/* @media screen and (min-width: 1024px) */
+@media screen and (max-width: 768px){
+ .sidebar-mainDiv{
+    display: flex;
+    flex-direction:column-reverse;
+    
+ }
  .list_Div_sidebar{
+    position: fixed;
+    top: 90vh;
+    z-index: 91;
+    width: 100%;
+    background-color: #d1fae5;
+    box-shadow: 0 0 2px;
+}
+ .ul-list{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    
+    
+ }
+ .profile_last_div{
+    display: none;
+ }
+ .webresponsive_mobile{
     display: none;
  }
  .right_bar_div{

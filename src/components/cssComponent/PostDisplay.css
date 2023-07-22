@@ -53,6 +53,12 @@
    justify-content:space-between;
    
 }
+.tab_like_align{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
 .tab_like_bm:hover{
     cursor: pointer;
     font-weight: 600;

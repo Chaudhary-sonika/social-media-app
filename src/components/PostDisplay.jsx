@@ -80,19 +80,19 @@ export const PostDisplay =({userPost})=>{
                 <hr/>
                 <div className="like_comm_book_div">
                  <div className="tab_like_bm" onClick={likeHandlerToggle}>
-                    {likedByUser() ? (<div>
+                    {likedByUser() ? (<div className="tab_like_align">
                      <FavoriteIcon/><span> Liked</span>
-                    </div>):(<div><FavoriteBorderIcon/><span>Like</span></div>)}
+                    </div>):(<div className="tab_like_align"><FavoriteBorderIcon/><span>Like</span></div>)}
                  </div>
-                 <div>
+                 <div className="tab_like_align">
                   <CommentIcon/><span>comment</span>
                  </div>
                  <div className="tab_like_bm">
                   {bookmarkedByUser() ? (
-                    <div onClick={()=>removeBookmarkData(_id)}>
+                    <div onClick={()=>removeBookmarkData(_id)} className="tab_like_align">
                         <BookmarkIcon/><span>Bookmarked</span>
                     </div>
-                  ):(<div onClick={()=> addBookmarkData(_id)}>
+                  ):(<div onClick={()=> addBookmarkData(_id)} className="tab_like_align">
                     <BookmarkBorderIcon/><span>Bookmark</span>
                   </div>)}
                  </div>
