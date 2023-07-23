@@ -63,7 +63,7 @@ export const Sidebar =()=>{
                 <Outlet />
             </div>
             <div className="right_bar_div">
-                <Popup trigger={<input value={searchInput} onChange={(e) => setSearchInput(e.target.value)} placeholder="Search users.." />} position="bottom">
+                <Popup trigger={<input className="search_users_input" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} placeholder="Search users.." />} position="bottom">
                     <div className="popup_div">
                         {searchInput?.length > 0 && (
                             <div>{filteredSearch?.length === 0 && <h4>No Users Found</h4>}</div>

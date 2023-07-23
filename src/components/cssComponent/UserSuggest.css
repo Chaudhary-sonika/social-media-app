@@ -1,6 +1,6 @@
 
 .rightBar_main_Div{
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
    
 }
 .user_profile_div{
@@ -8,23 +8,25 @@
     flex-direction: row;
     
     justify-content: left;
+    align-items: center;
     padding-left: 20%;
     
 }
-.user_profile_div:hover{
-    cursor: pointer;
-    
-}
+
 .right_bar_user_tile button{
    background-color: #d1fae5;
    border: 1px solid #047857;
    border-radius: 4px;
-width: 5rem;
+   width: 5rem;
+   margin-top: -0.5rem;
 }
 .right_bar_avatar{
     width: 3rem;
     height: 3rem;
     border-radius: 1.5rem;
+}
+.right_bar_avatar:hover{
+    cursor: pointer;
 }
 .name_hTag{
     margin-top: 0rem;
@@ -33,6 +35,12 @@ width: 5rem;
     margin-top: -1.5rem;
     font-size: small;
     color: #047857;
+}
+.name_btn_container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    align-items: start;
 }
 .follow_button:hover{
  cursor: pointer;

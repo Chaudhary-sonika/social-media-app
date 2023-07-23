@@ -115,6 +115,12 @@
 .navBar_rightDiv{
     padding-right: 1rem;
 }
+.search_users_input{
+    border:1.5px solid #047857;
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+    background-color:#f8fafc;
+}
 /* popup style */
 
 .popup_div{
